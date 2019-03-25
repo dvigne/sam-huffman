@@ -36,7 +36,7 @@ class HuffmanTree:
         print("Depth: %s - %s" % (depth, node.value))
         self.traverse(node.right, depth = depth + 1)
 
-    def traverse2(self, node, direction):
+    def traverseInDirection(self, node, direction):
         if(not node):
             return
         print(node.value)
@@ -48,13 +48,6 @@ class HuffmanTree:
 
     def printHeap(self):
         print(self.nodes)
-
-    def isBst(self, node, max, min):
-        if(not node):
-            return True
-        if (node.value < min or node.value > max):
-            return False
-        return self.isBst(node.left, min, node.value - 1) and self.isBst(node.right, node.value + 1, max)
 
     def getRoot(self):
         return self.nodes[0]
